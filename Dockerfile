@@ -11,7 +11,6 @@ RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7 \
 # Package Install
 # ------------------------------------------------
 RUN yum -y install \
-		man \
 		sudo \
 		vim \
 		git \
