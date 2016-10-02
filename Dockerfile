@@ -20,6 +20,7 @@ RUN yum -y install \
 		wget \
 		openssh-server \
 		openssh-clients \
+&&  yum -y reinstall glibc-common \
 &&  rm -rf /var/cache/yum/* \
 &&  yum clean all
 
@@ -38,6 +39,12 @@ RUN sed -i \
 ADD server_setting.sh /server_setting.sh
 ADD run.sh /run.sh
 RUN chmod a+x /run.sh && chmod a+x /server_setting.sh
+
+ENV LANG ja_JP.UTF-8
+ENV LANGUAGE ja_JP:ja
+ENV LC_ALL ja_JP.UTF-8
+RUN unlink /etc/localtime
+RUN ln -s /usr/share/zoneinfo/Japan /etc/localtime
 
 EXPOSE 22
 CMD ["/run.sh"]
