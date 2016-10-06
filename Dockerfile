@@ -29,8 +29,10 @@ RUN yum -y install \
 RUN ssh-keygen -t rsa -b 4096 -N "" -f /etc/ssh/ssh_host_rsa_key
 RUN sed -i \
 	-e 's|^#PermitRootLogin yes|PermitRootLogin no|g' \
+	-e 's|^#UseDNS yes|UseDNS no|g' \
+	-e 's|^PermitRootLogin yes|PermitRootLogin no|g' \
+	-e 's|^UseDNS yes|UseDNS no|g' \
 	/etc/ssh/sshd_config
-
 
 # ------------------------------------------------
 # Setting container
