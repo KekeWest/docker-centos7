@@ -37,9 +37,8 @@ RUN sed -i \
 # ------------------------------------------------
 # Setting container
 # ------------------------------------------------
-ADD server_setting.sh /server_setting.sh
 ADD run.sh /run.sh
-RUN chmod a+x /run.sh && chmod a+x /server_setting.sh
+RUN chmod a+x /run.sh
 
 ENV LANG ja_JP.UTF-8
 ENV LANGUAGE ja_JP:ja
@@ -48,5 +47,5 @@ RUN unlink /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Japan /etc/localtime
 
 EXPOSE 22
-CMD ["/run.sh"]
+ENTRYPOINT ["/run.sh"]
 

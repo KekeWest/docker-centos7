@@ -19,18 +19,20 @@ $ docker build -t kekewest/docker-centos7 .
 ```
 
 ## Dockerコンテナのセットアップと起動
-作成したDockerコンテナのイメージを起動させるため、まずはユーザー作成などのセットアップを行います
+作成したDockerコンテナのイメージを起動させます。-uオプションを使用することによって、起動時にユーザーを作成することができます。
 ```
-$ docker run --name testcontainer -i -t kekewest/docker-centos7
-creating user...
-New UserName: test
-Changing password for user test.
-New password:
-Retype new password:
-passwd: all authentication tokens updated successfully.
+$ docker run --name testcontainer -i -d -t kekewest/docker-centos7 -u "username;password"
 ```
-セットアップが完了したら、
+また、-hオプションを使用した以下のコマンドでヘルプを表示することができます。
 ```
-$ docker start testcontainer
+$ docker run --rm -i -t kekewest/docker-centos7 -h
+Usage in run.sh [-opt]
+Options (field in '<>' are required):
+    -h This help
+    -u "<username;password>"    Add auser
+               required arg: "<username>;<password>"
+               <username> for user
+               <password> for user
+
 ```
-でSSHサーバが起動している状態のDockerコンテナが起動します
+
