@@ -5,7 +5,7 @@ usage() {
   echo "Usage in ${0##*/} [-opt]
 Options (field in '<>' are required):
     -h This help
-    -u \"<username;password>\"    Add auser
+    -u \"<username;password>\"    Add a user
                required arg: \"<username>;<password>\"
                <username> for user
                <password> for user
