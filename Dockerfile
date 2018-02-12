@@ -42,10 +42,8 @@ RUN chmod a+x /run.sh
 
 ENV LANG ja_JP.UTF-8
 ENV LANGUAGE ja_JP:ja
-ENV LC_ALL ja_JP.UTF-8
 RUN unlink /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Japan /etc/localtime
 
 EXPOSE 22
 ENTRYPOINT ["/run.sh"]
-
